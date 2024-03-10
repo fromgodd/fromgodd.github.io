@@ -1,22 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Just Said :)</title>
-    <link rel="stylesheet" href="/static/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Said Fromgodd</title>
+  <link rel="stylesheet" href="https://unpkg.com/7.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #000;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .window {
+      width: 80%;
+      max-width: 800px;
+      font-size: 18px;
+      animation: starsAnimation 50s linear infinite;
+    }
+    .window-body {
+      padding: 20px;
+    }
+    .title-bar {
+      cursor: default;
+    }
+    .title-bar-controls button {
+      pointer-events: auto;
+    }
+    .explore-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+    }
+    @keyframes starsAnimation {
+      0% { background-position: 0 0; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0 0; }
+    }
+  </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Welcome to 404 :)</h1>
-<p>This site is currently under construction. Your support on GitHub helps us generate content here.</p>
-<h2>My GitHub Repositories</h2>
-<p>Here are some of my GitHub repositories:</p>
-<ol>
-<li><a href="https://github.com/fromgodd/yachiru">Yachiru</a></li>
-<li><a href="https://github.com/fromgodd/mydots-suite">MyDots Suite</a></li>
-<li><a href="https://github.com/fromgodd/pystatix">PyStatix</a></li>
-</ol>
-<p>Feel free to explore my projects and contribute as well !!!</p>
-
+<body style="background-image: url('https://source.unsplash.com/random')">
+  <div class="window">
+    <div class="title-bar">
+      <div class="title-bar-text">Said Fromgodd</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close"></button>
+      </div>
     </div>
+    <div class="window-body">
+      <p>
+       Y'all welcome to my website. Feel free to contact me via email. For now this site is under construction!
+      </p>
+      <p>
+        Find me on:
+        <a href="https://www.linkedin.com/in/saidumarkhon-alimkhanov-77098528a/" class="icon-link"><i class="fab fa-linkedin fa-2x"></i></a>
+        <a href="https://github.com/fromgodd" class="icon-link"><i class="fab fa-github fa-2x"></i></a>
+      </p>
+    </div>
+    <button class="explore-btn">Explore my projects</button>
+  </div>
 </body>
 </html>
