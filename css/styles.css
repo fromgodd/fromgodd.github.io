@@ -1,0 +1,14 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+.dark-mode .card {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+#map {
+    height: 400px;
+}

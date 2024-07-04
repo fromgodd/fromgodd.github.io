@@ -1,29 +1,54 @@
-<!--<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Willkommen auf meiner Webseite</title><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;700&display=swap" rel="stylesheet"><style>body{font-family:Inconsolata,monospace;background-color:#2f1e2e;color:#d3c6aa;margin:0;padding:0;line-height:1.6}header{text-align:center;padding:30px 0}header h1{font-size:2em;font-weight:700;margin:0}main{max-width:90%;margin:0 auto;padding:20px}p{margin-bottom:20px;font-size:1.1em}table{width:100%;border-collapse:collapse;margin-bottom:20px}table,td,th{border:1px solid #9b9987;padding:8px;text-align:left}th{background-color:#292929;color:#d3c6aa}a{color:#d3c6aa;text-decoration:none}a:hover{color:#bdae9d}@media screen and (max-width:600px){header h1{font-size:1.8em}main{padding:10px}p{font-size:1em}}</style></head><body><header><h1>Ich begrüße dich auf meiner Webseite</h1><p><a href="https://github.com/fromgodd">Link zu meinem GitHub-Profil</a></p></header><main><p>Hallo! Ich heiße Said und ich bin ein begeisterter Programmierer und Linux-Benutzer. Ich praktiziere Datenwissenschaft mit Polars, Spark, Pandas und NumPy und lerne funktionale Programmierung mit F# und Haskell. Meine aktuelle Software- und Hardware-Konfiguration sieht wie folgt aus:</p><table><tr><th>Komponente</th><th>Details</th></tr><tr><td>Betriebssystem</td><td>Arch Linux, Windows 11</td></tr><tr><td>Programmiersprachen</td><td>Rust, C, Python, Haskell, F#, Bash, Go, R</td></tr><tr><td>Server</td><td>Pentium G6405, Proxmox NAS, Docker</td></tr></table></main></body></html>
--->
-<!doctypehtml><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><title>DVD Logo Animation</title><style>body{margin:0;overflow:hidden}#dvd-logo{position:absolute;width:100px;height:auto}</style><img alt="DVD Logo"id=dvd-logo src=https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/DVD_logo.svg/768px-DVD_logo.svg.png?20240510210001><script>const logo = document.getElementById('dvd-logo');
-        const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
-        const logoWidth = logo.clientWidth;
-        const logoHeight = logo.clientHeight;
-        let x = Math.random() * (screenWidth - logoWidth);
-        let y = Math.random() * (screenHeight - logoHeight);
-        let dx = 2; // Horizontal speed
-        let dy = 2; // Vertical speed
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Distance Calculator</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Roboto Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Route Distance Calculator</h2>
+            <button class="btn btn-outline-secondary" id="darkModeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        
+        <div class="card p-4 mb-4">
+            <div class="form-group">
+                <label for="originInput">Origin Address:</label>
+                <input type="text" id="originInput" class="form-control" placeholder="Enter origin address">
+            </div>
+            <div class="form-group">
+                <label for="destinationInput">Destination Address:</label>
+                <input type="text" id="destinationInput" class="form-control" placeholder="Enter destination address">
+            </div>
+            <button class="btn btn-primary" type="button" id="calculateButton">Calculate Route</button>
+        </div>
+        
+        <div id="result" class="alert" style="display: none;"></div>
 
-        function animateLogo() {
-            x += dx;
-            y += dy;
+        <div id="map" class="mb-4"></div>
+    </div>
 
-            // Bounce off the screen edges
-            if (x + logoWidth > screenWidth || x < 0) {
-                dx *= -1;
-            }
-            if (y + logoHeight > screenHeight || y < 0) {
-                dy *= -1;
-            }
-
-            logo.style.transform = `translate(${x}px, ${y}px)`;
-            requestAnimationFrame(animateLogo);
-        }
-
-        animateLogo();</script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script src="utils/geocode.js"></script>
+</body>
+</html>
