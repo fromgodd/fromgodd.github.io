@@ -1,0 +1,63 @@
+/* ── GitHub Dark Design System ── */
+:root {
+  --bg-primary:    #0d1117;
+  --bg-secondary:  #161b22;
+  --bg-tertiary:   #21262d;
+  --bg-hover:      #30363d;
+  --border:        #30363d;
+  --border-subtle: #21262d;
+  --text-primary:  #e6edf3;
+  --text-secondary:#8b949e;
+  --text-muted:    #6e7681;
+  --accent-blue:   #58a6ff;
+  --accent-blue-dark: #1f6feb;
+  --accent-green:  #3fb950;
+  --accent-orange: #d29922;
+  --accent-purple: #bc8cff;
+  --glow-blue:     rgba(88, 166, 255, 0.15);
+  --glow-green:    rgba(63, 185, 80, 0.15);
+  --radius-sm:     6px;
+  --radius-md:     12px;
+  --radius-lg:     20px;
+  --font: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+::selection {
+  background: var(--accent-blue-dark);
+  color: var(--text-primary);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
