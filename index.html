@@ -69,6 +69,59 @@ ul{margin:0;padding:0;list-style:none}
 
 :focus-visible{outline:1px solid #fff;outline-offset:4px}
 
+/* ── ambient background: drifting gradient + dot field ──── */
+/* Sits at z-index -2, behind .hero__grid (-1) and all content.
+   body's #000 propagates to the canvas, so this paints over pure black. */
+.bg{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden;contain:strict}
+
+.bg__dots{
+  position:absolute;inset:-140px;
+  background-image:radial-gradient(rgba(255,255,255,.55) 1px,transparent 1px);
+  background-size:40px 40px;
+  opacity:.085;
+  -webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 45%,#000 0%,transparent 76%);
+          mask-image:radial-gradient(ellipse 75% 65% at 50% 45%,#000 0%,transparent 76%);
+  animation:dots 64s linear infinite;
+  will-change:transform;
+}
+@keyframes dots{
+  0%{transform:translate3d(0,0,0)}
+  100%{transform:translate3d(-40px,-40px,0)}
+}
+
+/* soft radial blooms — no blur filter, the gradient falloff is the blur */
+.blob{position:absolute;border-radius:50%;will-change:transform}
+.blob--1{
+  width:78vmax;height:78vmax;left:-26vmax;top:-30vmax;
+  background:radial-gradient(circle closest-side,rgba(96,116,180,.16),rgba(96,116,180,0) 100%);
+  animation:float1 38s ease-in-out infinite;
+}
+.blob--2{
+  width:66vmax;height:66vmax;right:-24vmax;top:14vmax;
+  background:radial-gradient(circle closest-side,rgba(150,110,180,.13),rgba(150,110,180,0) 100%);
+  animation:float2 47s ease-in-out infinite;
+}
+.blob--3{
+  width:58vmax;height:58vmax;left:18vmax;bottom:-28vmax;
+  background:radial-gradient(circle closest-side,rgba(80,150,150,.11),rgba(80,150,150,0) 100%);
+  animation:float3 56s ease-in-out infinite;
+}
+@keyframes float1{
+  0%,100%{transform:translate3d(0,0,0) scale(1)}
+  33%{transform:translate3d(6vmax,4vmax,0) scale(1.08)}
+  66%{transform:translate3d(-3vmax,7vmax,0) scale(.95)}
+}
+@keyframes float2{
+  0%,100%{transform:translate3d(0,0,0) scale(1)}
+  40%{transform:translate3d(-7vmax,5vmax,0) scale(.93)}
+  70%{transform:translate3d(-2vmax,-5vmax,0) scale(1.07)}
+}
+@keyframes float3{
+  0%,100%{transform:translate3d(0,0,0) scale(1)}
+  45%{transform:translate3d(5vmax,-6vmax,0) scale(1.06)}
+  75%{transform:translate3d(-6vmax,-2vmax,0) scale(.96)}
+}
+
 /* ── custom cursor (inverts what is underneath) ─────────── */
 .cursor,.cursor-ring{
   position:fixed;top:0;left:0;
@@ -208,7 +261,7 @@ h1 .wave{display:inline-block;transform-origin:70% 70%;animation:wave 3.2s var(-
   gap:1px;background:var(--line);border:1px solid var(--line);
 }
 .card{
-  background:var(--bg);padding:32px 28px 36px;
+  background:rgba(0,0,0,.45);padding:32px 28px 36px;
   transition:background .32s var(--ease),color .32s var(--ease);
 }
 .card:hover{background:var(--fg);color:var(--bg)}
@@ -302,10 +355,18 @@ footer{border-top:1px solid var(--line);padding:38px 0 46px}
 @media (prefers-reduced-motion:reduce){
   .rv{opacity:1;transform:none;transition:none}
   h1 .wave,.dot,.scroll-cue i,.brand .blink{animation:none}
+  .bg__dots,.blob{animation:none}
 }
 </style>
 </head>
 <body>
+
+<div class="bg" aria-hidden="true">
+  <div class="bg__dots"></div>
+  <span class="blob blob--1"></span>
+  <span class="blob blob--2"></span>
+  <span class="blob blob--3"></span>
+</div>
 
 <div class="cursor" id="cur-dot" aria-hidden="true"></div>
 <div class="cursor-ring" id="cur-ring" aria-hidden="true"></div>
@@ -439,8 +500,8 @@ footer{border-top:1px solid var(--line);padding:38px 0 46px}
         <a class="linkrow" href="https://github.com/fromgodd" target="_blank" rel="noopener noreferrer">
           <span class="name">GitHub</span><span class="val">@fromgodd &#8599;</span>
         </a>
-        <a class="linkrow" href="mailto:ravshanxursanov32@gmail.com">
-          <span class="name">Email</span><span class="val">ravshanxursanov32@gmail.com &#8599;</span>
+        <a class="linkrow" href="mailto:fromgodd@protonmail.com">
+          <span class="name">Email</span><span class="val">fromgodd@protonmail.com &#8599;</span>
         </a>
       </div>
     </div>
